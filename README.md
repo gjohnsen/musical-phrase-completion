@@ -18,7 +18,7 @@ For setup instructions to run locally, please visit the original [Neural Editor 
 
 ### Create Training Run
 
-After setup of `neural-editor` and `neural-editor-data`, training scripts for monophonic data are located in `composer-scripts`. To run training on HPC, enter the following for the Bach dataset:
+After setup of `neural-editor` and `neural-editor-data`, training scripts for monophonic data are located in `neural-editor-model`. To run training on HPC, enter the following for the Bach dataset:
 
 ```
 sbatch m_bach.s
@@ -26,12 +26,13 @@ sbatch m_bach.s
 To run other composers on simply replace the composer name: `sbatch m_<composer>.s` and submit.
 
 **Additional Training Run Notes**:
-`sbatch` scripts run a Singularity image of Kelvin Guu's Docker image (kelvinguu/textmorph:1.2), already located on Prince's shared folders. The training run will output a slurm file: `m_<dataset>.out`. This file will contain training loss information, as well as a few sample validation source and target outputs.
+- `sbatch` scripts run a Singularity image of Kelvin Guu's Docker image (kelvinguu/textmorph:1.2), already located on Prince's shared folders. 
+- The training run will output a slurm file: `m_<dataset>.out`. This file will contain training loss information, as well as a few sample validation source and target outputs.
 
 
 ### Generating Output from Training Checkpoint
 
-After training has completed, you can generate a Jupyer Notebook demo located inside of `neural-editor-model/neural-editor/`. Once in `neural-editor-demo.ipynb` notebook, set `EDIT_RUN` to the desired composer. A map of existing training runs have been provided in the notebook.
+After training has completed, you can generate a Jupyer Notebook demo located inside of `neural-editor-model/neural-editor`. Once in `neural-editor-demo.ipynb` notebook, set `EDIT_RUN` to the desired composer. A map of existing training runs have been provided in the notebook.
 
 
 
