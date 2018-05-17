@@ -1,0 +1,73 @@
+{
+  "bleu_train": 0,
+  "dist_big_train": 1.0,
+  "ribes_big_train": 0,
+  "loss_train": 0.292134225368,
+  "loss_big_train": 0.202020213008,
+  "bleu_big_valid": 0,
+  "dirty_repo": true,
+  "dist_train": 0.955,
+  "gleu_big_valid": 0,
+  "dist_big_valid": 0.422437258167,
+  "loss_big_valid": 80.3676834106,
+  "config": {
+    "optim": {
+      "learning_rate": 1e-05,
+      "seed": 0,
+      "max_iters": 100000,
+      "batch_size": 32
+    },
+    "seed": 0,
+    "editor": {
+      "vocab_size": 63,
+      "decoder_layers": 3,
+      "decoder_cell": "AttentionDecoderCell",
+      "edit_dim": 256,
+      "edit_dropout": true,
+      "kill_edit": true,
+      "norm_max": 7.5,
+      "attention_dim": 128,
+      "norm_eps": 0.1,
+      "wvec_path": "mono/vivaldi_300d.txt",
+      "embed_sentence": false,
+      "agenda_dim": 256,
+      "no_insert_delete_attn": false,
+      "word_dim": 300,
+      "hidden_dim": 256,
+      "enable_vae": true,
+      "encoder_layers": 3,
+      "attend_pr": 0.5,
+      "lamb_reg": 50.0,
+      "ident_pr": 0.1
+    },
+    "eval": {
+      "eval_steps": 100,
+      "alive_steps": 5,
+      "big_eval_steps": 500,
+      "save_steps": 50,
+      "num_examples": 10,
+      "big_num_examples": 8
+    },
+    "dataset": {
+      "path": "midi_split/mono/vivaldi",
+      "use_diff": true
+    }
+  },
+  "gleu_big_train": 0,
+  "ribes_train": 0,
+  "dist_valid": 0.466257887342,
+  "host": "gpu-54",
+  "max_grad_norm": 219.468694804,
+  "bleu_big_train": 0,
+  "chrf_train": 0,
+  "ribes_big_valid": 0,
+  "chrf_valid": 0,
+  "chrf_big_valid": 0,
+  "loss_valid": 103.95765686,
+  "gleu_train": 0,
+  "chrf_big_train": 0,
+  "gleu_valid": 0,
+  "commit": "84a812cb5088e0e2821a35bb296de32324288e34",
+  "bleu_valid": 0,
+  "ribes_valid": 0
+}

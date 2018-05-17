@@ -1,0 +1,29 @@
+textmorph/edit_model/training_run.py
+=======================================================
+lhs: 100644 | 121f1214e2d2772cbb465887beb5a1d5269df0f1
+rhs: 100644 | 9e247f730894133ba438c8a6a7be3f07aec6733d
+---@@ -547,14 +547,14 @@ class EditTrainingRun(TorchTrainingRun):
+ 
+         for ex, output in izip(noised_sample, outputs):
+             # outputs is a list(over batches)[ list(over beams) [ list(over tokens) [ unicode ] ] ] object.
+-            bleus.append(bleu(ex.target_words, output[0]))
+-            gleus.append(gleu(ex.target_words, output[0]))
+-            ribeses.append(ribes(ex.target_words, output[0]))
+-            chrfs.append(chrf(ex.target_words, output[0]))
++            #bleus.append(bleu(ex.target_words, output[0]))
++            #gleus.append(gleu(ex.target_words, output[0]))
++            #ribeses.append(ribes(ex.target_words, output[0]))
++            #chrfs.append(chrf(ex.target_words, output[0]))
+             dists.append(levenshtein_distance(ex.target_words, output[0]))
+-        avg_bleu = np.mean(bleus)
+-        avg_gleu = np.mean(gleus)
+-        avg_ribes = np.mean(ribeses)
+-        avg_chrf = np.mean(chrfs)
++        avg_bleu = 0#np.mean(bleus)
++        avg_gleu = 0#np.mean(gleus)
++        avg_ribes = 0#np.mean(ribeses)
++        avg_chrf = 0#np.mean(chrfs)
+         avg_dist = np.mean(dists)
+         return loss, avg_bleu, avg_gleu, avg_ribes, avg_chrf, avg_dist, edit_traces
+
+---

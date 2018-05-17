@@ -1,0 +1,14 @@
+configs/optim/debug.txt
+=======================================================
+lhs: 100644 | c8249395d5c76d35c266a499b48b5c328f7724dc
+rhs: 100644 | 1691f28397491bd16987b8092aecff03de5e924e
+---@@ -1,6 +1,6 @@
+ optim {
+     seed = 0  # random seed
+-    learning_rate = 0.000001
++    learning_rate = 0.00001
+     batch_size = 32  # examples per batch
+     max_iters = 100000  # max number of mini-batch steps to take
+ }
+
+---

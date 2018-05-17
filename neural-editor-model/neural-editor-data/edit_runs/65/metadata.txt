@@ -1,0 +1,73 @@
+{
+  "bleu_train": 0.468975,
+  "dist_big_train": 0.588824152329,
+  "ribes_big_train": 0.154611013986,
+  "loss_train": 14.4404735565,
+  "loss_big_train": 14.2835388184,
+  "bleu_big_valid": 0.4847125,
+  "dirty_repo": true,
+  "dist_train": 0.575225762937,
+  "gleu_big_valid": 0.521537162162,
+  "dist_big_valid": 0.584653960309,
+  "loss_big_valid": 18.4043598175,
+  "config": {
+    "optim": {
+      "learning_rate": 1e-05,
+      "seed": 0,
+      "max_iters": 100000,
+      "batch_size": 32
+    },
+    "seed": 0,
+    "editor": {
+      "vocab_size": 85,
+      "decoder_layers": 3,
+      "decoder_cell": "AttentionDecoderCell",
+      "edit_dim": 256,
+      "edit_dropout": true,
+      "kill_edit": true,
+      "norm_max": 7.5,
+      "attention_dim": 128,
+      "norm_eps": 0.1,
+      "wvec_path": "mono/mozart_300d.txt",
+      "embed_sentence": false,
+      "agenda_dim": 256,
+      "no_insert_delete_attn": false,
+      "word_dim": 300,
+      "hidden_dim": 256,
+      "enable_vae": true,
+      "encoder_layers": 3,
+      "attend_pr": 0.5,
+      "lamb_reg": 50.0,
+      "ident_pr": 0.1
+    },
+    "eval": {
+      "eval_steps": 100,
+      "alive_steps": 5,
+      "big_eval_steps": 500,
+      "save_steps": 50,
+      "num_examples": 32,
+      "big_num_examples": 32
+    },
+    "dataset": {
+      "path": "midi_split/mono/mozart",
+      "use_diff": true
+    }
+  },
+  "gleu_big_train": 0.533180501931,
+  "ribes_train": 0.0950611888112,
+  "dist_valid": 0.620561558562,
+  "host": "gpu-54",
+  "max_grad_norm": 176.637809465,
+  "bleu_big_train": 0.490784375,
+  "chrf_train": 0.650791921024,
+  "ribes_big_valid": 0.0716431594721,
+  "chrf_valid": 0.704848583364,
+  "chrf_big_valid": 0.696123339463,
+  "loss_valid": 17.0246696472,
+  "gleu_train": 0.513533622909,
+  "chrf_big_train": 0.673650367653,
+  "gleu_valid": 0.551258848134,
+  "commit": "7d1247c46ff6a223dc3798bd60ed1faf29756bcc",
+  "bleu_valid": 0.51641875,
+  "ribes_valid": 0.0716431594721
+}

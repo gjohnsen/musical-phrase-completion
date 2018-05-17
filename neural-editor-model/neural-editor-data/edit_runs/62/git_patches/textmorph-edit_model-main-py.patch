@@ -1,0 +1,14 @@
+textmorph/edit_model/main.py
+=======================================================
+lhs: 100644 | 1acb439792c4602bedeb29a7876bb45b991f23a0
+rhs: 100644 | 5a85cf85e07386cab10ec6bd8db3027b0218b2bf
+---@@ -18,6 +18,7 @@ args = arg_parser.parse_args()
+ experiments = EditTrainingRuns(check_commit=(args.check_commit=='strict'))
+ 
+ exp_id = args.exp_id
++print 'exp_id ', exp_id
+ if exp_id == ['default']:
+     # new default experiment
+     exp = experiments.new()
+
+---

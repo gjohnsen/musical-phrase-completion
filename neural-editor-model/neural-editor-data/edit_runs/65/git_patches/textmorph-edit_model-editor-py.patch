@@ -1,0 +1,56 @@
+textmorph/edit_model/editor.py
+=======================================================
+lhs: 100644 | d21393e8355b1af0656bbd19f57c979f175bfa61
+rhs: 100644 | cccf827cbda38ff6a2410c125a1c4ea86df162d9
+---@@ -79,7 +79,7 @@ class Editor(Module):
+ 
+         Args:
+             editor_input (EditorInput)
+-            draw_samples (bool) : flag for whether to add noise for variational approx.
++            draw_samples (bool) : flag for whether to add noise for variational approx. 
+ 
+         Returns:
+             loss (Variable): scalar
+@@ -130,7 +130,7 @@ class Editor(Module):
+             raise Exception('test_batch called with example list of length < 2')
+         print 'Passed batching test'
+ 
+-    def edit(self, examples, max_seq_length=35, beam_size=5, batch_size=256):
++    def edit(self, examples, max_seq_length=32, beam_size=5, batch_size=256):
+         """Performs edits on a batch of source sentences.
+ 
+         Args:
+@@ -220,7 +220,13 @@ class EditExample(namedtuple('EditExample', ['source_words', 'insert_words', 'in
+ 
+     @classmethod
+     def from_prompt(cls):
+-        get_input = lambda prompt: word_tokenize(raw_input(prompt).decode('utf-8'))
++        # if music sample, do not tokenize normally
++        init_input = lambda prompt: raw_input(prompt).decode('utf-8')
++        input_music = init_input('Is this a music sample? (true/false):\n')
++        if input_music:
++            get_input = lambda prompt: raw_input(prompt).decode('utf-8').split()
++        else:
++            get_input = lambda prompt: word_tokenize(raw_input(prompt).decode('utf-8'))
+         source_words = get_input('Enter a source sentence:\n')
+         whitelist = sorted(get_input('Enter whitelist (OK to leave empty):\n'))
+         blacklist = sorted(get_input('Enter blacklist (OK to leave empty):\n'))
+@@ -259,9 +265,14 @@ class EditExample(namedtuple('EditExample', ['source_words', 'insert_words', 'in
+         Returns:
+             EditExample
+         """
++        
++        # for sentence/music completion       
+         trg_words = src_words
+-        if len(src_words) > 5:
+-            src_words = src_words[:-5]
++
++        # music completion
++        if len(src_words) > 12:
++            # masking middle 8 notes
++            src_words = src_words[:6] + src_words[-6:]
+         src_set, trg_set = set(src_words), set(trg_words)
+         insert_words = sorted(trg_set - src_set - free_set)
+         delete_words = sorted(src_set - trg_set - free_set)
+
+---

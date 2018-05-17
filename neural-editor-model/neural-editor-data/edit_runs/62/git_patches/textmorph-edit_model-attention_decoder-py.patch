@@ -1,0 +1,14 @@
+textmorph/edit_model/attention_decoder.py
+=======================================================
+lhs: 100644 | 2715370ed9b593604683c345459f6a2e98f3650c
+rhs: 100644 | 807ecdde1704c2a9d301185970c5018427fbb1fd
+---@@ -117,6 +117,7 @@ class AttentionDecoderCell(DecoderCell):
+         vocab_logit_pos = self.relu(torch.mm(vocab_query_pos, word_embeds.t())) # (batch_size, vocab_size)
+         vocab_logit_neg = self.relu(torch.mm(vocab_query_neg, word_embeds.t()))  # (batch_size, vocab_size)
+         vocab_probs = self.vocab_softmax(vocab_logit_pos - vocab_logit_neg)
++
+         # TODO(kelvin): prevent model from putting probability on UNK
+ 
+         rnn_state = AttentionRNNState(hs, cs, source_attn, insert_attn, delete_attn)
+
+---

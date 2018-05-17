@@ -1,0 +1,21 @@
+configs/eval/debug.txt
+=======================================================
+lhs: 100644 | e283701dba408cdb4f2467f8bdb859754b64f048
+rhs: 100644 | 957896ebbcf8d6826c0c23b46ac9c0f9be085d66
+---@@ -1,8 +1,8 @@
+ eval {
+-    num_examples = 4  # number of examples to periodically evaluate on
+-    big_num_examples = 8
+-    eval_steps = 10
+-    big_eval_steps = 20
++    num_examples = 32  # number of examples to periodically evaluate on
++    big_num_examples = 32
++    eval_steps = 100
++    big_eval_steps = 500
+     save_steps = 50
+     alive_steps = 5
+-}
+\ No newline at end of file
++}
+
+---

@@ -1,0 +1,80 @@
+third-party/gtd/gtd/utils.py
+=======================================================
+lhs: 100644 | 261f7de5668bb377d3f03671e3ac781aa87c4609
+rhs: 100644 | 9c2460db7eb851204a9ff4b85e1556d43f206658
+---@@ -982,6 +982,40 @@ def softmax(logits):
+     probs = exp_logits / np.sum(exp_logits)
+     return probs
+ 
++def levenshtein_distance(reference, predict):
++    """
++    Compute the distance between the two vectors using levenshtein_distance
++
++    Returns 1 - (#correct/total_characters) giving [0.0, 1.0] where 1.0 is exactly the same
++    """
++    from nltk.metrics.distance import edit_distance
++
++    if len(predict) == 0:
++        if len(reference) == 0:
++           return 1.0
++        else :
++           return 0.0
++
++    e_distance = 0.0
++    char_count = 0
++
++    word_diff = abs(len(reference) - len(predict))
++
++    for i in range(0, min(len(reference), len(predict))):
++        char_count += max(len(reference[i]), len(predict[i]))
++        e_distance += edit_distance(reference[i], predict[i])
++
++    char_diff = 0
++    if len(reference) < len(predict):
++        char_diff = sum(len(word) for word in (predict[-word_diff:]))
++    elif len(reference) > len(predict):
++        char_diff = sum(len(word) for word in (reference[-word_diff:]))
++
++    char_count += char_diff
++    e_distance += char_diff
++
++    print('levenshtein_distance: ', 1-(e_distance/char_count))
++    return 1-(e_distance/char_count)
+ 
+ def bleu(reference, predict):
+     """Compute sentence-level bleu score.
+@@ -1042,7 +1076,7 @@ def ribes(reference, hypothesis):
+     best_ribes = -1.0
+     alpha = 0.25
+     beta = 0.10
+-    
++
+     # Collects the *worder* from the ranked correlation alignments.
+     worder = ribes_score.word_rank_alignment(reference, hypothesis)
+ 
+@@ -1052,18 +1086,18 @@ def ribes(reference, hypothesis):
+         return 0.0
+     else:
+         nkt = ribes_score.spearman_rho(worder)
+-        
++
+     # Calculates the brevity penalty
+     bp = min(1.0, math.exp(1.0 - len(reference)/len(hypothesis)))
+-    
++
+     # Calculates the unigram precision, *p1*
+     p1 = len(worder) / len(hypothesis)
+-    
++
+     _ribes = nkt * (p1 ** alpha) *  (bp ** beta)
+-    
++
+     if _ribes > best_ribes: # Keeps the best score.
+         best_ribes = _ribes
+-        
++
+     return best_ribes
+ 
+ def chrf(reference, predict):
+
+---

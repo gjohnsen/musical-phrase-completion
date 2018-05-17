@@ -1,0 +1,41 @@
+optim {
+  seed = 0
+  learning_rate = 1e-05
+  batch_size = 32
+  max_iters = 100000
+}
+eval {
+  num_examples = 32
+  big_num_examples = 32
+  eval_steps = 100
+  big_eval_steps = 500
+  save_steps = 50
+  alive_steps = 5
+}
+seed = 0
+editor {
+  decoder_cell = "AttentionDecoderCell"
+  vocab_size = 61
+  word_dim = 300
+  hidden_dim = 256
+  agenda_dim = 256
+  edit_dim = 256
+  attention_dim = 128
+  encoder_layers = 3
+  decoder_layers = 3
+  no_insert_delete_attn = false
+  edit_dropout = true
+  ident_pr = 0.1
+  attend_pr = 0.5
+  enable_vae = true
+  lamb_reg = 50.0
+  norm_eps = 0.1
+  norm_max = 7.5
+  kill_edit = true
+  embed_sentence = false
+  wvec_path = "mono/handel_300d.txt"
+}
+dataset {
+  path = "midi_split/mono/handel"
+  use_diff = true
+}
