@@ -1,0 +1,8 @@
+eval {
+    num_examples = 10  # number of examples to periodically evaluate on
+    big_num_examples = 8
+    eval_steps = 100
+    big_eval_steps = 500
+    save_steps = 50
+    alive_steps = 5
+}
