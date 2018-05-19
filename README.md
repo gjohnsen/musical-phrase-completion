@@ -1,6 +1,15 @@
 # Multi-modal Musical Phrase Completion
 
 ## MaskGAN Musical Phrase Completion
+We use google cloud to train MaskGAN model.
+
+### Setup Instructions
+
+Please visit the original MaskGAN implementation [here](https://github.com/tensorflow/models/tree/master/research/maskgan).
+
+In this project, we applied MaskGAN for Music Note.
+
+**Addition Setup Notes**:
 
 
 ## Neural Editor Musical Phrase Completion
