@@ -10,7 +10,7 @@ Please visit the original MaskGAN implementation [here](https://github.com/tenso
 In this project, we applied MaskGAN for Musical Phrase Completion.
 
 ### Create Training Run
-python train_mask_gan.py /\
+python train_mask_gan.py \\
   --data_dir='data_dir' /\
   --batch_size=20 /\
   --sequence_length=20 /\
