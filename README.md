@@ -9,8 +9,8 @@ Please visit the original MaskGAN implementation [here](https://github.com/tenso
 
 In this project, we applied MaskGAN for Musical Phrase Completion.
 
-'/tmp/data_dir' will have data set
-'/tmp/log_dir' will have model check points
+'/tmp/data_dir' will have data set. <br/>
+'/tmp/log_dir' will have model check points.<br/>
 
 ### Create Training Run
 ```bash
